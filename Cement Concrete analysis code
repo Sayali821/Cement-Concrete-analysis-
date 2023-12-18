@@ -1,0 +1,40 @@
+# Concrete Mix Design 
+
+# Input values
+grade_designation = float(input("Enter Grade designation(eg.40)"))
+
+# Constants
+specific_gravity_of_cement = 2.88
+specific_gravity_of_water = 1
+specific_gravity_of_fine_aggregate = 2.65
+specific_gravity_of_coarse_aggregate = 2.74
+compressive_strength = 5
+water_cement_ratio = 0.4
+water_content = 186
+volume_of_concrete = 1
+
+# Calculations
+target_mean_strength = grade_designation + (compressive_strength * 1.65)
+water_content1 = water_content + (6/100) * water_content
+cement_content = water_content1 / water_cement_ratio 
+coarse_aggregate_volume = 0.62 + 0.01 + 0.01
+fine_aggregate_volume = 1 - coarse_aggregate_volume
+cement_volume = (cement_content/specific_gravity_of_cement) * (1/1000)
+water_volume = (water_content1/specific_gravity_of_water) * (1/1000)
+total_aggregate_volume = 1 - (cement_volume + water_volume)
+coarse_aggregate_mass = total_aggregate_volume * coarse_aggregate_volume * specific_gravity_of_coarse_aggregate * 1000
+fine_aggregate_mass = total_aggregate_volume * fine_aggregate_volume * specific_gravity_of_fine_aggregate * 1000
+
+
+# Results
+print("Target Mean Strength:", target_mean_strength)
+print("Water-Cement Ratio:", water_cement_ratio)
+print("Water Content(l):", water_content1)
+print("Cement Content(kg/m3):", cement_content)
+print("Water Volume (m3):", water_volume)
+print("Cement Volume (m3):", cement_volume)
+print("Coarse Aggregate Volume (m3):", coarse_aggregate_volume)
+print("Fine Aggregate Volume (m3):", fine_aggregate_volume)
+print("Mass of Course Aggregate(kg):", coarse_aggregate_mass)
+print("Mass of Fine Aggregate(kg):", fine_aggregate_mass)
+print("Total Aggregate Volume of Aggregate (m3):", total_aggregate_volume)
